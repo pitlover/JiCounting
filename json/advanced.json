@@ -1,0 +1,58 @@
+{
+  "gpu_ids": [
+    0
+  ],
+  "output_dir"  : "./output/Baseline",
+  "checkpoint": "",
+  "wandb": {
+    "project": "JiCounting",
+    "entity": "00310214aa-",
+    "name": "Advanced",
+    "mode": "online"
+  },
+  "dataset" : {
+    "data_type": "FSC147",
+    "data_path": "/mnt/hdd/FSC147"
+  },
+  "dataloader": {
+    "batch_size": 8,
+    "num_workers": 8
+  },
+  "model" : {
+    "extractor" : {
+      "name" : "Resnet18"
+    },
+    "regressor" : {
+      "name" : "CountRegressor"
+    },
+    "bn_momentum" : 0.1
+  },
+  "loss": {
+    "mse_weight" : 1
+  },
+  "optimizer" : {
+    "name" : "adamw",
+    "lr" : 1e-5,
+    "weight_decay" : 0.0
+  },
+  "scheduler": {
+    "name": "cos_annealing",
+    "t_max": 22850,
+    "eta_min": 0,
+    "pct_start": 0.3,
+    "div_factor": 25,
+    "final_div_factor": 100,
+    "cycle_momentum": false
+  },
+  "train": {
+    "print_freq": 20,
+    "valid_freq": 250,
+    "epoch": 300,
+    "num_accum": 1,
+    "grad_norm": 0.1,
+    "freeze_encoder_bn": false
+  },
+  "eval": {
+
+  }
+}
