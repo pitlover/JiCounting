@@ -136,3 +136,5 @@ dmypy.json
 *.pth
 *.pt
 output/
+*/Baseline/
+*/test
